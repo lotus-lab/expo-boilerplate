@@ -106,23 +106,15 @@ export const screenGenerator: PlopGeneratorConfig = {
       });
     }
 
-    // if (answers.wantTests) {
-    //   actions.push({
-    //     type: "add",
-    //     path: `${screenPath}/__tests__/index.test.tsx`,
-    //     templateFile: "./screen/index.test.tsx.hbs",
-    //     abortOnFail: true,
-    //   });
-    // }
-
-    if (answers.wantTranslations) {
+    if (answers.wantTests) {
       actions.push({
         type: "add",
-        path: `${screenPath}/messages.ts`,
-        templateFile: "./screen/messages.ts.hbs",
+        path: `${screenPath}/__tests__/index.test.tsx`,
+        templateFile: "./screen/index.test.tsx.hbs",
         abortOnFail: true,
       });
     }
+
     actions.push({
       type: "modify",
       path: `${rootNavigationTypesPath}`,

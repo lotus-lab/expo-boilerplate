@@ -13,8 +13,7 @@ import {View} from 'react-native';
 import styled from 'styled-components/native';
 {{/if}}
 {{#if wantTranslations}}
-import { useTranslation } from 'react-i18next';
-import { messages } from './messages';
+import { useLocalization } from "src/locales";
 {{/if}}
 
 interface Props {}
@@ -25,8 +24,7 @@ export const {{ properCase componentName }} = memo((props: Props) => {
 export function {{ properCase componentName }}(props: Props) {
 {{/if}}
   {{#if wantTranslations}}
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { t, i18n } = useTranslation();
+  const { i18n } = useLocalization();
   {{/if}}
 
   return (
@@ -36,8 +34,7 @@ export function {{ properCase componentName }}(props: Props) {
   <View>
   {{/if}}
     {{#if wantTranslations}}
-    {t('')}
-    {/*  {t(...messages.someThing())}  */}
+    <Text> {i18n.t("welcome")} </Text>
     {{/if}}
   {{#if wantStyledComponents}}
   </Container>

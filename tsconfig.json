@@ -9,19 +9,22 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
-      "app/*": ["src/app/*"],
-      "assets/*": ["src/assets/*"],
-      "locals/*": ["src/locals/*"],
-      "navigation/*": ["src/navigation/*"],
-      "styles/*": ["src/styles/*"],
-      "types/*": ["src/types/*"],
-      "utils/*": ["src/utils/*"],
-      "components/*":["src/components/*"]
+      "src/*": ["src/*"],
+      // "app/*": ["src/app/*"],
+      // "assets/*": ["src/assets/*"],
+      // "locales/*": ["src/locales/*"],
+      // "navigation/*": ["src/navigation/*"],
+      // "styles/*": ["src/styles/*"],
+      // "types/*": ["src/types/*"],
+      // "utils/*": ["src/utils/*"],
+      // "components/*":["src/app/components/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src","."],
+  "extensions": [".tsx", ".json", ".ts", ".js", ".jsx"],
+  "exclude": ["node_modules"],
   "ts-node": {
     "compilerOptions": {
       "esModuleInterop": true,

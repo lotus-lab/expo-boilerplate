@@ -14,21 +14,20 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
 import { ColorSchemeName, Pressable } from "react-native";
 
-import Colors from "utils/constants/Colors";
-import useColorScheme from "utils/hooks/useColorScheme";
-import ModalScreen from "app/screens/ModalScreen";
-import NotFoundScreen from "app/screens/NotFoundScreen";
-import TabOneScreen from "app/screens/TabOneScreen";
-import TabTwoScreen from "app/screens/TabTwoScreen";
+import Colors from "src/utils/constants/Colors";
+import useColorScheme from "src/utils/hooks/useColorScheme";
+import ModalScreen from "src/app/screens/ModalScreen";
+import NotFoundScreen from "src/app/screens/NotFoundScreen";
+import TabOneScreen from "src/app/screens/TabOneScreen";
+import TabTwoScreen from "src/app/screens/TabTwoScreen";
 
-import { Login } from 'app/screens/Login/Loadable';
 // [IMPORT NEW COMPONENT SCREEN ABOVE] < Needed for importing screen
 
 import {
   RootStackParamList,
   RootTabParamList,
   RootTabScreenProps,
-} from "utils/types/types";
+} from "src/utils/types/types";
 import LinkingConfiguration from "./LinkingConfiguration";
 
 export default function Navigation({
@@ -120,15 +119,7 @@ function BottomTabNavigator() {
         }}
       />
 
-<BottomTab.Screen
-  name="Login"
-  component={ Login }
-  options={
-    {title: "Login",
-    tabBarIcon: ({color}) => <TabBarIcon name="code" color={color} />}
-  }
-/>
-{/* // [INSERT NEW SCREEN COMPONENT ABOVE] < Needed for generating screen */}
+      {/* // [INSERT NEW SCREEN COMPONENT ABOVE] < Needed for generating screen */}
 
       {/**@End  */}
     </BottomTab.Navigator>
