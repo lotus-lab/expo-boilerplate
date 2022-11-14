@@ -1,0 +1,9 @@
+/**
+*
+* Asynchronously loads the component for {{ properCase screenName }}
+*
+*/
+
+import { lazyLoad } from 'utils/loadable';
+
+export const {{ properCase screenName }} = lazyLoad(() => import('./index'), module => module.{{ properCase screenName }});
