@@ -1,10 +1,10 @@
 import { PayloadAction } from '@reduxjs/toolkit';
-import { createSlice } from 'utils/@reduxjs/toolkit';
+import { createSlice } from 'src/utils/@reduxjs/toolkit';
 {{#if wantSaga}}
-import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
+import { useInjectReducer, useInjectSaga } from 'src/utils/redux-injectors';
 import { {{ camelCase sliceName }}Saga } from './saga';
 {{else}}
-import { useInjectReducer } from 'utils/redux-injectors';
+import { useInjectReducer } from 'src/utils/redux-injectors';
 {{/if}}
 import { {{ properCase sliceName }}State } from './types';
 
