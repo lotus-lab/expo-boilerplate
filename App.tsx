@@ -4,6 +4,8 @@ import React from "react";
 import useCachedResources from "src/utils/hooks/useCachedResources";
 import useColorScheme from "src/utils/hooks/useColorScheme";
 import Navigation from "src/navigation";
+import { ThemeProvider } from "styled-components/native";
+import { theme } from "src/utils/theme/theme";
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
@@ -13,10 +15,12 @@ export default function App() {
     return null;
   } else {
     return (
-      <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
-        <StatusBar />
-      </SafeAreaProvider>
+      <ThemeProvider theme={theme}>
+        <SafeAreaProvider>
+          <Navigation colorScheme={colorScheme} />
+          <StatusBar />
+        </SafeAreaProvider>
+      </ThemeProvider>
     );
   }
 }

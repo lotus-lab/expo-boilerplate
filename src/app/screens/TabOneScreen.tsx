@@ -8,7 +8,9 @@ import { useLocalization } from "src/locales";
 export default function TabOneScreen({
   navigation,
 }: RootTabScreenProps<"TabOne">) {
-  const { i18n } = useLocalization();
+  const { i18n } = useLocalization({
+    lang: "ja",
+  });
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Tab One</Text>

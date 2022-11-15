@@ -1,4 +1,4 @@
-import { IFarmerDetails } from "app/screens/todo/slice/types";
+import { IFarmerDetails } from "src/app/screens/todo/slice/types";
 
 /* 
   Because the redux-injectors injects your reducers asynchronously somewhere in your code

@@ -4,6 +4,7 @@ import { Button } from "src/app/components/Core/Button";
 
 import EditScreenInfo from "src/app/components/EditScreenInfo";
 import { Text, View } from "src/app/components/Themed";
+import { theme } from "src/utils/theme/theme";
 
 export default function ModalScreen() {
   return (
@@ -18,7 +19,7 @@ export default function ModalScreen() {
 
       {/* Use a light status bar on iOS to account for the black space above the modal */}
       <StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
-      <Button>
+      <Button bg="warning" p="6" padding="">
         <Text>Book</Text>
       </Button>
     </View>
