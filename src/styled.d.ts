@@ -22,8 +22,10 @@ declare module "styled-components/native" {
     colors: {
       white: string;
       text: string;
+      color: string;
       primary: string;
       secondary: string;
+      background: string;
       transparent: string;
       gray: {
         50: string;

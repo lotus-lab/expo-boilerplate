@@ -1,9 +1,9 @@
 import { StyleSheet } from "react-native";
 
 import EditScreenInfo from "src/app/components/EditScreenInfo";
-import { Text, View } from "src/app/components/Themed";
 import { RootTabScreenProps } from "src/utils/types/types";
 import { useLocalization } from "src/locales";
+import { Container, Text } from "../components/Core";
 
 export default function TabOneScreen({
   navigation,
@@ -12,18 +12,14 @@ export default function TabOneScreen({
     lang: "ja",
   });
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
+    <Container style={styles.container}>
+      <Text color="text">Tab One</Text>
+
       <Text>
         {i18n.t("welcome")} {i18n.t("name")}
       </Text>
       <EditScreenInfo path="/screens/TabOneScreen.tsx" />
-    </View>
+    </Container>
   );
 }
 

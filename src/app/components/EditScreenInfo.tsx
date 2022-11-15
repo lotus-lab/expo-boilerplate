@@ -1,49 +1,35 @@
 import * as WebBrowser from "expo-web-browser";
 import { StyleSheet, TouchableOpacity } from "react-native";
 
-import Colors from "../../utils/constants/Colors";
-import { MonoText } from "./StyledText";
-import { Text, View } from "./Themed";
+import { Container, Text } from "./Core";
 
 export default function EditScreenInfo({ path }: { path: string }) {
   return (
-    <View>
-      <View style={styles.getStartedContainer}>
-        <Text
-          style={styles.getStartedText}
-          lightColor="rgba(0,0,0,0.8)"
-          darkColor="rgba(255,255,255,0.8)"
-        >
-          Open up the code for this screen:
-        </Text>
+    <Container>
+      <Container style={styles.getStartedContainer}>
+        <Text color="text">Open up the code for this screen:</Text>
 
-        <View
+        <Container
           style={[styles.codeHighlightContainer, styles.homeScreenFilename]}
-          darkColor="rgba(255,255,255,0.05)"
-          lightColor="rgba(0,0,0,0.05)"
         >
-          <MonoText>{path}</MonoText>
-        </View>
+          <Text color="text">{path}</Text>
+        </Container>
 
-        <Text
-          style={styles.getStartedText}
-          lightColor="rgba(0,0,0,0.8)"
-          darkColor="rgba(255,255,255,0.8)"
-        >
+        <Text color="text">
           Change any of the text, save the file, and your app will automatically
           update.
         </Text>
-      </View>
+      </Container>
 
-      <View style={styles.helpContainer}>
+      <Container style={styles.helpContainer}>
         <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-          <Text style={styles.helpLinkText} lightColor={Colors.light.tint}>
+          <Text color="text" style={styles.helpLinkText}>
             Tap here if your app doesn't automatically update after making
             changes
           </Text>
         </TouchableOpacity>
-      </View>
-    </View>
+      </Container>
+    </Container>
   );
 }
 

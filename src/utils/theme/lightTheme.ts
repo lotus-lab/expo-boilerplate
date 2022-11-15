@@ -1,10 +1,12 @@
 import { DefaultTheme } from "styled-components/native";
 
-export const theme: DefaultTheme = {
+export const lightTheme: DefaultTheme = {
   colors: {
-    transparent: "rgba(0,0,0,0)",
+    transparent: "rgba(0,0,0,0.3)",
     white: "#ffffff",
+    background: "#fff",
     text: "#212529",
+    color: "#000",
     primary: "#3366FF",
     secondary: "#EE5149",
     success: "#74d815",

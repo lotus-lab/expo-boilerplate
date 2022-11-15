@@ -10,9 +10,9 @@ import {
   zIndex,
   position,
 } from "styled-system";
-import { ButtonProps } from "./types";
+import { BoxProps } from "./types";
 
-export const Button = styled.TouchableOpacity<ButtonProps>`
+export const Container = styled.View<BoxProps>`
   ${compose(
     color,
     layout,
@@ -22,5 +22,5 @@ export const Button = styled.TouchableOpacity<ButtonProps>`
     border,
     zIndex,
     position
-  )}
+  )};
 `;

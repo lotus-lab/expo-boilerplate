@@ -4,7 +4,6 @@ import { Button } from "src/app/components/Core/Button";
 
 import EditScreenInfo from "src/app/components/EditScreenInfo";
 import { Text, View } from "src/app/components/Themed";
-import { theme } from "src/utils/theme/theme";
 
 export default function ModalScreen() {
   return (
