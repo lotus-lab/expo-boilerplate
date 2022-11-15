@@ -19,7 +19,7 @@ export default function ModalScreen() {
 
       {/* Use a light status bar on iOS to account for the black space above the modal */}
       <StatusBar style={Platform.OS === "ios" ? "light" : "auto"} />
-      <Button bg="warning" p="6" padding="">
+      <Button bg="warning">
         <Text>Book</Text>
       </Button>
     </View>
