@@ -12,14 +12,6 @@
     "baseUrl": "./",
     "paths": {
       "src/*": ["src/*"],
-      // "app/*": ["src/app/*"],
-      // "assets/*": ["src/assets/*"],
-      // "locales/*": ["src/locales/*"],
-      // "navigation/*": ["src/navigation/*"],
-      // "styles/*": ["src/styles/*"],
-      // "types/*": ["src/types/*"],
-      // "utils/*": ["src/utils/*"],
-      // "components/*":["src/app/components/*"]
     }
   },
   "include": ["src","."],
