@@ -1,27 +1,23 @@
-import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import useCachedResources from "src/utils/hooks/useCachedResources";
-import useColorScheme from "src/utils/hooks/useColorScheme";
-import Navigation from "src/navigation";
-import { ThemeProvider } from "styled-components/native";
 
-import { useTheme } from "src/utils/theme";
+import { Provider } from "react-redux";
+import { configureAppStore } from "src/store/configureStore";
+import DefaultLayout from "src/app/screens/defaultLayout";
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
-  const { colorMode, theme } = useTheme();
-
+  const { store } = configureAppStore();
   if (!isLoadingComplete) {
     return null;
   } else {
     return (
-      <ThemeProvider theme={theme}>
+      <Provider store={store}>
         <SafeAreaProvider>
-          <Navigation colorScheme={colorMode} />
-          <StatusBar />
+          <DefaultLayout />
         </SafeAreaProvider>
-      </ThemeProvider>
+      </Provider>
     );
   }
 }

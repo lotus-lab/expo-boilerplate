@@ -2,10 +2,10 @@
  * Combine all reducers in this file and export the combined reducers.
  */
 
-import { combineReducers } from '@reduxjs/toolkit';
+import { combineReducers } from "@reduxjs/toolkit";
 // import { RootState } from 'types';
 
-import { InjectedReducersType } from 'utils/types/injector-typings';
+import { InjectedReducersType } from "src/utils/types/injector-typings";
 
 /**
  * Merges the main reducer with the router state and dynamically injected reducers
