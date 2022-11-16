@@ -1,5 +1,5 @@
 import { PayloadAction } from "@reduxjs/toolkit";
-import { ColorSchemeName } from "react-native";
+import { Appearance, ColorSchemeName } from "react-native";
 import { createSlice } from "src/utils/@reduxjs/toolkit";
 import { useInjectReducer, useInjectSaga } from "src/utils/redux-injectors";
 import { lightTheme } from "src/utils/theme/lightTheme";
@@ -9,14 +9,18 @@ import { DefaultLayoutState } from "./types";
 
 export const initialState: DefaultLayoutState = {
   theme: lightTheme,
+  themeMode: "light",
 };
 
 const slice = createSlice({
   name: "defaultLayout",
   initialState,
   reducers: {
-    changeTheme(state, action: PayloadAction<DefaultTheme>) {
+    changeTheme: (state, action: PayloadAction<DefaultTheme>) => {
       state.theme = action.payload;
+    },
+    changeThemeMode: (state, action: PayloadAction<ColorSchemeName>) => {
+      state.themeMode = action.payload;
     },
   },
 });

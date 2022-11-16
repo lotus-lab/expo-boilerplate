@@ -5,19 +5,23 @@ import useCachedResources from "src/utils/hooks/useCachedResources";
 import { Provider } from "react-redux";
 import { configureAppStore } from "src/store/configureStore";
 import DefaultLayout from "src/app/screens/defaultLayout";
+import { PersistGate } from "redux-persist/integration/react";
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
-  const { store } = configureAppStore();
+  const { store, persistor } = configureAppStore();
+
   if (!isLoadingComplete) {
     return null;
   } else {
     return (
-      <Provider store={store}>
-        <SafeAreaProvider>
-          <DefaultLayout />
-        </SafeAreaProvider>
-      </Provider>
+      <SafeAreaProvider>
+        <Provider store={store}>
+          <PersistGate persistor={persistor} loading={null}>
+            <DefaultLayout />
+          </PersistGate>
+        </Provider>
+      </SafeAreaProvider>
     );
   }
 }

@@ -1,4 +1,5 @@
 import { createSelector } from "@reduxjs/toolkit";
+import { ColorSchemeName } from "react-native";
 
 import { RootState } from "src/types";
 import { DefaultTheme } from "styled-components/native";
@@ -14,3 +15,6 @@ export const selectTheme: (state: RootState) => DefaultTheme = createSelector(
   [selectDefaultLayout],
   (state) => state?.theme
 );
+
+export const selectThemeMode: (state: RootState) => ColorSchemeName =
+  createSelector([selectDefaultLayout], (state) => state?.themeMode);

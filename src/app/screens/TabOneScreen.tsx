@@ -3,7 +3,9 @@ import { StyleSheet } from "react-native";
 import EditScreenInfo from "src/app/components/EditScreenInfo";
 import { RootTabScreenProps } from "src/utils/types/types";
 import { useLocalization } from "src/locales";
-import { Container, Text } from "../components/Core";
+import { Button, Container, Text } from "../components/Core";
+import { useDispatch } from "react-redux";
+import { useDefaultLayoutSlice } from "./defaultLayout/slice";
 
 export default function TabOneScreen({
   navigation,
@@ -11,10 +13,21 @@ export default function TabOneScreen({
   const { i18n } = useLocalization({
     lang: "ja",
   });
+  const dispatch = useDispatch();
+  const { actions } = useDefaultLayoutSlice();
   return (
     <Container style={styles.container}>
       <Text color="text">Tab One</Text>
-
+      <Button
+        bg="primary"
+        p="2"
+        borderRadius="6"
+        onPress={() => {
+          dispatch(actions.changeThemeMode("dark"));
+        }}
+      >
+        <Text color="text">Change Theme</Text>
+      </Button>
       <Text>
         {i18n.t("welcome")} {i18n.t("name")}
       </Text>
