@@ -29,6 +29,7 @@ export type RootTabParamList = {
   TabOne: undefined;
   TabTwo: undefined;
   Login?: undefined;
+  Login?: undefined;
   // [INSERT NEW SCREEN KEY ABOVE] < Needed for generating screen
 };
 

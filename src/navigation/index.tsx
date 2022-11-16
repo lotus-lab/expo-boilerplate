@@ -21,6 +21,7 @@ import NotFoundScreen from "src/app/screens/NotFoundScreen";
 import TabOneScreen from "src/app/screens/TabOneScreen";
 import TabTwoScreen from "src/app/screens/TabTwoScreen";
 
+import { Login } from 'src/app/screens/Login/Loadable';
 // [IMPORT NEW COMPONENT SCREEN ABOVE] < Needed for importing screen
 
 import {
@@ -119,7 +120,15 @@ function BottomTabNavigator() {
         }}
       />
 
-      {/* // [INSERT NEW SCREEN COMPONENT ABOVE] < Needed for generating screen */}
+<BottomTab.Screen
+  name="Login"
+  component={ Login }
+  options={
+    {title: "Login",
+    tabBarIcon: ({color}) => <TabBarIcon name="code" color={color} />}
+  }
+/>
+{/* // [INSERT NEW SCREEN COMPONENT ABOVE] < Needed for generating screen */}
 
       {/**@End  */}
     </BottomTab.Navigator>

@@ -72,12 +72,12 @@ export const screenGenerator: PlopGeneratorConfig = {
       default: false,
       message: "Do you want to load the screen asynchronously?",
     },
-    // {
-    //   type: "confirm",
-    //   name: ScreenProptNames.wantTests,
-    //   default: false,
-    //   message: "Do you want to have tests?",
-    // },
+    {
+      type: "confirm",
+      name: ScreenProptNames.wantTests,
+      default: false,
+      message: "Do you want to have tests?",
+    },
   ],
   actions: (data) => {
     const answers = data as Answers;
