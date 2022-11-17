@@ -4,7 +4,6 @@
  *
  */
 import { FontAwesome } from "@expo/vector-icons";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
   NavigationContainer,
   DefaultTheme,
@@ -18,8 +17,8 @@ import Colors from "src/utils/constants/Colors";
 import useColorScheme from "src/utils/hooks/useColorScheme";
 import ModalScreen from "src/app/screens/ModalScreen";
 import NotFoundScreen from "src/app/screens/NotFoundScreen";
-import TabOneScreen from "src/app/screens/TabOneScreen";
-import TabTwoScreen from "src/app/screens/TabTwoScreen";
+import Home from "src/app/screens/Home";
+import Contact from "src/app/screens/Contact";
 
 // [IMPORT NEW COMPONENT SCREEN ABOVE] < Needed for importing screen
 
@@ -29,6 +28,9 @@ import {
   RootTabScreenProps,
 } from "src/utils/types/types";
 import LinkingConfiguration from "./LinkingConfiguration";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { useSelector } from "react-redux";
+import { selectTheme } from "src/app/screens/defaultLayout/slice/selectors";
 
 export default function Navigation({
   colorScheme,
@@ -56,7 +58,7 @@ function RootNavigator() {
     <Stack.Navigator>
       <Stack.Screen
         name="Root"
-        component={BottomTabNavigator}
+        component={DrawerNavigator}
         options={{ headerShown: false }}
       />
       <Stack.Screen
@@ -75,24 +77,28 @@ function RootNavigator() {
  * A bottom tab navigator displays tab buttons on the bottom of the display to switch screens.
  * https://reactnavigation.org/docs/bottom-tab-navigator
  */
-const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
-function BottomTabNavigator() {
+const Drawer = createDrawerNavigator<RootTabParamList>();
+const DrawerNavigator = () => {
   const colorScheme = useColorScheme();
-
+  const theme = useSelector(selectTheme);
   return (
-    <BottomTab.Navigator
-      initialRouteName="TabOne"
+    <Drawer.Navigator
+      initialRouteName="Home"
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme].tint,
+        drawerActiveBackgroundColor: theme.colors.gray[300],
+        drawerIcon: () => (
+          <DrawerIcon color={theme.colors.background} name="hand-o-up" />
+        ),
+        headerTintColor: theme.colors.text,
       }}
     >
-      <BottomTab.Screen
-        name="TabOne"
-        component={TabOneScreen}
-        options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
-          title: "Tab One",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+      <Drawer.Screen
+        name="Home"
+        component={Home}
+        options={({ navigation }: RootTabScreenProps<"Home">) => ({
+          title: "Home",
+          drawerIcon: ({ color }) => <DrawerIcon name="home" color={color} />,
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate("Modal")}
@@ -110,26 +116,28 @@ function BottomTabNavigator() {
           ),
         })}
       />
-      <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoScreen}
+      <Drawer.Screen
+        name="Contact"
+        component={Contact}
         options={{
-          title: "Tab Two",
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: "Contact",
+          drawerIcon: ({ color }) => (
+            <DrawerIcon name="dot-circle-o" color={color} />
+          ),
         }}
       />
 
       {/* // [INSERT NEW SCREEN COMPONENT ABOVE] < Needed for generating screen */}
 
       {/**@End  */}
-    </BottomTab.Navigator>
+    </Drawer.Navigator>
   );
-}
+};
 
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
-function TabBarIcon(props: {
+function DrawerIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>["name"];
   color: string;
 }) {

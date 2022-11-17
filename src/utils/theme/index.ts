@@ -13,7 +13,7 @@ export const useTheme = () => {
   const { actions } = useDefaultLayoutSlice();
 
   const [colorMode, setColorMode] = useState<ColorSchemeName>(themeMode);
-  console.log(themeMode);
+
   const handleThemeChange = (value: ColorSchemeName) => {
     setColorMode(value);
     if (value === "light") {

@@ -4,12 +4,14 @@ import EditScreenInfo from "src/app/components/EditScreenInfo";
 import { RootTabScreenProps } from "src/utils/types/types";
 import { useLocalization } from "src/locales";
 import { Button, Container, Text } from "../components/Core";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useDefaultLayoutSlice } from "./defaultLayout/slice";
+import { selectThemeMode } from "./defaultLayout/slice/selectors";
 
 export default function TabOneScreen({
   navigation,
-}: RootTabScreenProps<"TabOne">) {
+}: RootTabScreenProps<"Home">) {
+  const themeMode = useSelector(selectThemeMode);
   const { i18n } = useLocalization({
     lang: "ja",
   });
@@ -17,13 +19,17 @@ export default function TabOneScreen({
   const { actions } = useDefaultLayoutSlice();
   return (
     <Container style={styles.container}>
-      <Text color="text">Tab One</Text>
+      <Text color="text">Home Page</Text>
       <Button
         bg="primary"
         p="2"
         borderRadius="6"
         onPress={() => {
-          dispatch(actions.changeThemeMode("dark"));
+          if (themeMode === "light") {
+            dispatch(actions.changeThemeMode("dark"));
+          } else {
+            dispatch(actions.changeThemeMode("light"));
+          }
         }}
       >
         <Text color="text">Change Theme</Text>
