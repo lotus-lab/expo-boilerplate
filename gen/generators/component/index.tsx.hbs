@@ -8,9 +8,12 @@ import React, { memo } from 'react';
 {{else}}
 import * as React from 'react';
 {{/if}}
-import {View} from 'react-native';
+
+import { Text } from 'src/app/components/Core'
 {{#if wantStyledComponents}}
 import styled from 'styled-components/native';
+{{else}}
+import {View} from 'react-native';
 {{/if}}
 {{#if wantTranslations}}
 import { useLocalization } from "src/locales";
@@ -34,7 +37,14 @@ export function {{ properCase componentName }}(props: Props) {
   <View>
   {{/if}}
     {{#if wantTranslations}}
-    <Text> {i18n.t("welcome")} </Text>
+    <Text
+    fontFamily="Jost"
+    fontWeight="600"
+    fontSize="10"
+    color="text"
+  > 
+  {i18n.t("welcome")} 
+  </Text>
     {{/if}}
   {{#if wantStyledComponents}}
   </Container>

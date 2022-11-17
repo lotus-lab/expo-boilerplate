@@ -8,7 +8,8 @@ import React, { memo } from 'react';
 {{else}}
 import * as React from 'react';
 {{/if}}
-import {Text, View} from 'react-native';
+import { View} from 'react-native';
+import { Text } from 'src/app/components/Core'
 import { RootTabScreenProps } from "src/utils/types/types";
 {{#if wantStyledComponents}}
 import styled from 'styled-components/native';
@@ -51,11 +52,10 @@ export function {{ properCase screenName }}({
   </Container>
   {{else}}
   <Text
-    style={ {
-      fontFamily: "Jost",
-      fontWeight: "600",
-      fontSize: 40,
-    } }
+    fontFamily="Jost"
+    fontWeight="600"
+    fontSize="10"
+    color="text"
   >
     {{ properCase screenName }} Screen
   </Text>
