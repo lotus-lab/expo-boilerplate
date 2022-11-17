@@ -26,12 +26,9 @@ const linking: LinkingOptions<RootStackParamList> = {
             },
           },
 
-Login: {
-  screens: {
-    Login: "Login",
-  },
-},
-// [LINK NEW SCREEN ABOVE] < Needed for linking screen          // End
+          // [LINK NEW SCREEN ABOVE] < Needed for linking screen
+
+          // End
         },
       },
       Modal: "modal",
